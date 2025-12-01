@@ -1,606 +1,615 @@
-<title>Pronunciation Audio Guide</title>
-<style>
-  :root {
-    --bg-page: #e4f3ff;
-    --card-bg: #ffffff;
-    --navy: #134266;
-    --text-main: #234059;
-    --text-muted: #5a728a;
-    --border-soft: rgba(19, 66, 102, 0.05);
-    --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.06);
-    --purple: #9b59b6;
-    --blue: #3498db;
-    --yellow: #f4c542;
-    --brown: #8e6b3a;
-    --red: #e74c3c;
-    --green: #27ae60;
-    --pink: #e91e63;
-    --orange: #e67e22;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Audio Pronunciation Guide – 5-Minute Spanish-English Bilingual Short Stories for Kids</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  /* This is the scrollable area INSIDE the embed */
-  .audio-page-bg {
-    background: linear-gradient(90deg, #f9fcff 0%, #e4f3ff 55%);
-    padding: 32px 12px 48px;
-    box-sizing: border-box;
-
-    height: 100%;
-    max-height: 100vh;      /* never taller than the screen */
-    overflow-y: auto;       /* vertical scroll INSIDE */
-    overflow-x: hidden;     /* no horizontal scrollbar */
-  }
-
-  .audio-guide {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    max-width: 980px;
-    margin: 0 auto;
-    background: var(--card-bg);
-    border-radius: 20px;
-    box-shadow: var(--shadow-soft);
-    padding: 28px 28px 32px;
-    border: 1px solid var(--border-soft);
-  }
-
-  .audio-guide-header {
-    text-align: center;
-    border-bottom: 1px solid #edf3fb;
-    padding-bottom: 18px;
-    margin-bottom: 24px;
-  }
-
-  .audio-guide h1 {
-    font-size: 1.9rem;
-    margin: 0;
-    color: var(--navy);
-    line-height: 1.1;
-  }
-
-  .audio-guide p.intro {
-    font-size: 0.98rem;
-    color: var(--text-muted);
-    margin: 10px 0 0.6rem 0;
-  }
-
-  .audio-guide-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #f4fbff;
-    border-radius: 999px;
-    padding: 6px 12px;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-top: 12px;
-  }
-
-  .audio-guide-badge span.icon {
-    width: 18px;
-    height: 18px;
-    border-radius: 999px;
-    background: #ffd96a;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.78rem;
-    color: #7a4a00;
-    font-weight: 700;
-  }
-
-  .audio-legend {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    margin-top: 10px;
-  }
-
-  .audio-legend strong {
-    color: var(--text-main);
-  }
-
-  .audio-groups {
-    margin-top: 18px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 14px 18px;
-  }
-
-  .audio-group {
-    border-radius: 16px;
-    padding: 14px 16px 12px;
-    background: #fdfefe;
-    border: 1px solid #edf2fb;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
-    position: relative;
-  }
-
-  .audio-group::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 10px;
-    bottom: 10px;
-    width: 4px;
-    border-radius: 999px;
-    background: var(--navy);
-  }
-
-  .audio-group.theme-purple::before { background: var(--purple); }
-  .audio-group.theme-blue::before { background: var(--blue); }
-  .audio-group.theme-yellow::before { background: var(--yellow); }
-  .audio-group.theme-brown::before { background: var(--brown); }
-  .audio-group.theme-red::before { background: var(--red); }
-  .audio-group.theme-green::before { background: var(--green); }
-  .audio-group.theme-pink::before { background: var(--pink); }
-  .audio-group.theme-orange::before { background: var(--orange); }
-
-  .audio-group h2 {
-    margin-top: 0;
-    margin-bottom: 6px;
-    font-size: 0.98rem;
-    color: var(--navy);
-  }
-
-  .audio-group h2 span.theme-label {
-    display: block;
-    font-weight: 600;
-  }
-
-  .audio-group h2 span.theme-subtitle {
-    font-weight: 400;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-  }
-
-  .story-block {
-    margin-bottom: 9px;
-  }
-
-  .story-block h3 {
-    margin: 0 0 3px 0;
-    font-size: 0.86rem;
-    color: var(--text-main);
-  }
-
-  .story-block h3 span.en-title {
-    display: block;
-    font-size: 0.78rem;
-    color: var(--text-muted);
-    font-weight: 400;
-  }
-
-  .story-audio {
-    width: 100%;
-    max-width: 360px;
-    margin-top: 2px;
-  }
-
-  @media (max-width: 900px) {
-    .audio-groups {
-      grid-template-columns: 1fr;
+  <style>
+    :root {
+      --bg-page: #e4f3ff;
+      --card-bg: #ffffff;
+      --navy: #134266;
+      --text-main: #234059;
+      --text-muted: #5a728a;
+      --border-soft: rgba(19, 66, 102, 0.05);
+      --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.06);
+      --purple: #9b59b6;
+      --blue: #3498db;
+      --yellow: #f4c542;
+      --brown: #8e6b3a;
+      --red: #e74c3c;
+      --green: #27ae60;
+      --pink: #e91e63;
+      --orange: #e67e22;
     }
-  }
 
-  @media (max-width: 640px) {
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f8fc;
+    }
+
     .audio-page-bg {
-      padding: 18px 8px 24px;
+      background: linear-gradient(90deg, #f9fcff 0%, #e4f3ff 55%);
+      padding: 32px 12px 48px;
+      min-height: 100vh;
+      box-sizing: border-box;
     }
+
     .audio-guide {
-      padding: 18px 14px 22px;
-      border-radius: 14px;
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      padding: 28px 28px 32px;
+      border: 1px solid var(--border-soft);
     }
+
+    .audio-guide-header {
+      text-align: center;
+      border-bottom: 1px solid #edf3fb;
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+    }
+
     .audio-guide h1 {
-      font-size: 1.45rem;
+      font-size: 1.9rem;
+      margin: 0;
+      color: var(--navy);
+      line-height: 1.15;
     }
-  }
-</style>
 
+    .audio-guide p.intro {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      margin: 10px 0 0.6rem 0;
+    }
 
-<div class="audio-page-bg">
-  <div class="audio-guide">
+    .audio-guide-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f4fbff;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
 
-    <div class="audio-guide-header">
-      <h1>5-Minute Spanish-English Bilingual Short Stories For Kids</h1>
-      <h1>Audio Pronunciation Guide</h1>
+    .audio-guide-badge span.icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: #ffd96a;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      color: #7a4a00;
+      font-weight: 700;
+    }
 
-      <p class="intro">
-        Each audio clip includes the pronunciation of 5 key Spanish vocabulary words from one story.
-        Play the matching track, repeat the words together, and then spot them inside the story.
-      </p>
+    .audio-legend {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
 
-      <div class="audio-guide-badge">
-        <span class="icon">🎧</span>
-        <span>40 bite-size audio tracks to support your bilingual journey</span>
+    .audio-legend strong {
+      color: var(--text-main);
+    }
+
+    .audio-groups {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 18px;
+    }
+
+    .audio-group {
+      border-radius: 16px;
+      padding: 14px 16px 12px;
+      background: #fdfefe;
+      border: 1px solid #edf2fb;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      position: relative;
+    }
+
+    .audio-group::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10px;
+      bottom: 10px;
+      width: 4px;
+      border-radius: 999px;
+      background: var(--navy);
+    }
+
+    .audio-group.theme-purple::before { background: var(--purple); }
+    .audio-group.theme-blue::before { background: var(--blue); }
+    .audio-group.theme-yellow::before { background: var(--yellow); }
+    .audio-group.theme-brown::before { background: var(--brown); }
+    .audio-group.theme-red::before { background: var(--red); }
+    .audio-group.theme-green::before { background: var(--green); }
+    .audio-group.theme-pink::before { background: var(--pink); }
+    .audio-group.theme-orange::before { background: var(--orange); }
+
+    .audio-group h2 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 0.98rem;
+      color: var(--navy);
+    }
+
+    .audio-group h2 span.theme-label {
+      display: block;
+      font-weight: 600;
+    }
+
+    .audio-group h2 span.theme-subtitle {
+      font-weight: 400;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .story-block {
+      margin-bottom: 9px;
+    }
+
+    .story-block h3 {
+      margin: 0 0 3px 0;
+      font-size: 0.86rem;
+      color: var(--text-main);
+    }
+
+    .story-block h3 span.en-title {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .story-audio {
+      width: 100%;
+      max-width: 360px;
+      margin-top: 2px;
+    }
+
+    @media (max-width: 900px) {
+      .audio-groups {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .audio-page-bg {
+        padding: 18px 8px 30px;
+      }
+      .audio-guide {
+        padding: 18px 14px 22px;
+        border-radius: 14px;
+      }
+      .audio-guide h1 {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="audio-page-bg">
+    <div class="audio-guide">
+
+      <div class="audio-guide-header">
+        <h1>5-Minute Spanish-English Bilingual Short Stories For Kids</h1>
+        <h1>Audio Pronunciation Guide</h1>
+
+        <p class="intro">
+          Each audio clip includes the pronunciation of 5 key Spanish vocabulary words from one story.
+          Play the matching track, repeat the words together, and then spot them inside the story.
+        </p>
+
+        <div class="audio-guide-badge">
+          <span class="icon">🎧</span>
+          <span>40 bite-size audio tracks to support your bilingual journey</span>
+        </div>
+
+        <p class="audio-legend">
+          <strong>Tip:</strong> Tap once to play. Scroll anytime between themes.
+        </p>
       </div>
 
-      <p class="audio-legend">
-        <strong>Tip:</strong> Tap once to play. Scroll anytime between themes.
-      </p>
-    </div>
+      <div class="audio-groups">
+        <!-- PURPLE THEME -->
+        <div class="audio-group theme-purple">
+          <h2>
+            <span class="theme-label">The Purple Theme - El Poder del Cambio</span>
+            <span class="theme-subtitle">The Power of Change</span>
+          </h2>
 
-    <div class="audio-groups">
-      <!-- PURPLE THEME -->
-      <div class="audio-group theme-purple">
-        <h2>
-          <span class="theme-label">The Purple Theme - El Poder del Cambio</span>
-          <span class="theme-subtitle">The Power of Change</span>
-        </h2>
+          <div class="story-block">
+            <h3>La cerca rota<span class="en-title">The Broken Fence</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-purple-theme-el-poder-del-cambio/01-la-cerca-rota.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
 
-        <div class="story-block">
-          <h3>La cerca rota<span class="en-title">The Broken Fence</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-purple-theme-el-poder-del-cambio/01-la-cerca-rota.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+          <div class="story-block">
+            <h3>El Equipo del Reciclaje<span class="en-title">The Recycling Team</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-purple-theme-el-poder-del-cambio/02-el-equipo-del-reciclaje.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>Valiente de verdad<span class="en-title">Truly Brave</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-purple-theme-el-poder-del-cambio/03-valiente-de-verdad.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El periódico de las buenas noticias<span class="en-title">The Good News Newspaper</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-purple-theme-el-poder-del-cambio/04-periodico-buenas-noticias.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>La moneda que empezó todo<span class="en-title">The Coin That Started It All</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-purple-theme-el-poder-del-cambio/05-moneda-que-empezo-todo.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
         </div>
 
-        <div class="story-block">
-          <h3>El Equipo del Reciclaje<span class="en-title">The Recycling Team</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-purple-theme-el-poder-del-cambio/02-el-equipo-del-reciclaje.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+        <!-- BLUE THEME -->
+        <div class="audio-group theme-blue">
+          <h2>
+            <span class="theme-label">The Blue Theme - Tradiciones del Mundo</span>
+            <span class="theme-subtitle">Traditions Around the World</span>
+          </h2>
+
+          <div class="story-block">
+            <h3>Diego y el Día de los Muertos<span class="en-title">Diego's Día de los Muertos</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-blue-theme-tradiciones-del-mundo/06-diegos-dia-de-los-muertos.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El picnic de Tomo bajo los árboles de sakura<span class="en-title">Tomo's Picnic Under the Sakura Trees</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-blue-theme-tradiciones-del-mundo/07-picnic-de-tomo.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>Una Navidad diferente para Samuel<span class="en-title">A Different Christmas for Samuel</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-blue-theme-tradiciones-del-mundo/08-navidad-diferente-samuel.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El Diwali de Maya<span class="en-title">Maya's Diwali</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-blue-theme-tradiciones-del-mundo/09-diwali-de-maya.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El desfile de Carnaval de Luna<span class="en-title">Luna's Carnival Parade</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-blue-theme-tradiciones-del-mundo/10-desfile-de-carnaval-de-luna.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
         </div>
 
-        <div class="story-block">
-          <h3>Valiente de verdad<span class="en-title">Truly Brave</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-purple-theme-el-poder-del-cambio/03-valiente-de-verdad.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+        <!-- YELLOW THEME -->
+        <div class="audio-group theme-yellow">
+          <h2>
+            <span class="theme-label">The Yellow Theme - Cosas que me gustan</span>
+            <span class="theme-subtitle">Things I Like</span>
+          </h2>
+
+          <div class="story-block">
+            <h3>¿Dónde está Max?<span class="en-title">Where Is Max?</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-yellow-theme-cosas-que-me-gustan/11-donde-esta-max.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>La canción del día lluvioso<span class="en-title">The Rainy Day Song</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-yellow-theme-cosas-que-me-gustan/12-cancion-dia-lluvioso.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>Domingos de dragones<span class="en-title">Dragon Sundays</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-yellow-theme-cosas-que-me-gustan/13-domingos-de-dragones.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>Probar algo nuevo<span class="en-title">Trying Something New</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-yellow-theme-cosas-que-me-gustan/14-probar-algo-nuevo.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El club de lectura de Laura<span class="en-title">Laura's Book Club</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-yellow-theme-cosas-que-me-gustan/15-club-de-lectura-de-laura.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
         </div>
 
-        <div class="story-block">
-          <h3>El periódico de las buenas noticias<span class="en-title">The Good News Newspaper</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-purple-theme-el-poder-del-cambio/04-periodico-buenas-noticias.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+        <!-- BROWN THEME -->
+        <div class="audio-group theme-brown">
+          <h2>
+            <span class="theme-label">The Brown Theme - Amistad y Trabajo en Equipo</span>
+            <span class="theme-subtitle">Friendship and Teamwork</span>
+          </h2>
+
+          <div class="story-block">
+            <h3>El problema del show de talento<span class="en-title">The Talent Show Problem</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-brown-theme-amistad-y-trabajo-en-equipo/16-problema-show-de-talento.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>La isla de uno<span class="en-title">The Island of One</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-brown-theme-amistad-y-trabajo-en-equipo/17-isla-de-uno.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El error del videojuego<span class="en-title">The Game Glitch</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-brown-theme-amistad-y-trabajo-en-equipo/18-game-glitch.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El barco que no se movía<span class="en-title">The Boat That Wouldn't Move</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-brown-theme-amistad-y-trabajo-en-equipo/19-barco-que-no-se-movia.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El partido más importante<span class="en-title">The Most Important Match</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-brown-theme-amistad-y-trabajo-en-equipo/20-partido-mas-importante.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
         </div>
 
-        <div class="story-block">
-          <h3>La moneda que empezó todo<span class="en-title">The Coin That Started It All</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-purple-theme-el-poder-del-cambio/05-moneda-que-empezo-todo.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
+        <!-- RED THEME -->
+        <div class="audio-group theme-red">
+          <h2>
+            <span class="theme-label">The Red Theme - Cuando Sea Grande...</span>
+            <span class="theme-subtitle">When I Grow Up...</span>
+          </h2>
+
+          <div class="story-block">
+            <h3>¿Talento o esfuerzo?<span class="en-title">Talent or Effort?</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-red-theme-cuando-sea-grande/21-talento-o-esfuerzo.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El cielo es el límite<span class="en-title">The Sky Is the Limit</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-red-theme-cuando-sea-grande/22-cielo-es-el-limite.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El sabor de una idea<span class="en-title">The Taste of an Idea</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-red-theme-cuando-sea-grande/23-sabor-de-una-idea.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>La historia que no tenía final<span class="en-title">The Story That Wasn't Finished</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-red-theme-cuando-sea-grande/24-historia-que-no-tenia-final.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>Estar para alguien<span class="en-title">Being There for Someone</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-red-theme-cuando-sea-grande/25-estar-para-alguien.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
         </div>
+
+        <!-- GREEN THEME -->
+        <div class="audio-group theme-green">
+          <h2>
+            <span class="theme-label">The Green Theme - Niños Curiosos, Grandes Preguntas</span>
+            <span class="theme-subtitle">Curious Kids, Big Questions</span>
+          </h2>
+
+          <div class="story-block">
+            <h3>¿Los adultos lo saben todo?<span class="en-title">Do Adults Know Everything?</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-green-theme-ninos-curiosos-grandes-preguntas/26-adultos-lo-saben-todo.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>¿Qué hay al otro lado del mundo?<span class="en-title">What's on the Other Side of the World?</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-green-theme-ninos-curiosos-grandes-preguntas/27-otro-lado-del-mundo.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>¿Por qué no puedo ver el viento?<span class="en-title">Why Can't I See the Wind?</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-green-theme-ninos-curiosos-grandes-preguntas/28-por-que-no-puedo-ver-el-viento.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>¿Qué significan los sueños?<span class="en-title">What Do Dreams Mean?</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-green-theme-ninos-curiosos-grandes-preguntas/29-que-significan-los-suenos.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>¿Puedes contar las estrellas?<span class="en-title">Can You Count the Stars?</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-green-theme-ninos-curiosos-grandes-preguntas/30-puedes-contar-las-estrellas.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </div>
+
+        <!-- PINK THEME -->
+        <div class="audio-group theme-pink">
+          <h2>
+            <span class="theme-label">The Pink Theme - Así funciona el mundo</span>
+            <span class="theme-subtitle">How the World Works</span>
+          </h2>
+
+          <div class="story-block">
+            <h3>El día que el volcán estalló<span class="en-title">The Day the Volcano Model Exploded</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-pink-theme-asi-funciona-el-mundo/31-el-dia-que-el-volcan-estallo.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El misterio del microscopio<span class="en-title">Microscope Mystery</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-pink-theme-asi-funciona-el-mundo/32-el-misterio-del-microscopio.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>¿Cómo vuelan los aviones?<span class="en-title">How Planes Stay in the Air</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-pink-theme-asi-funciona-el-mundo/33-como-vuelan-los-aviones.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>Se fue la luz<span class="en-title">The Power Goes Out</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-pink-theme-asi-funciona-el-mundo/34-se-fue-la-luz.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>¿Por qué me siento tan rara?<span class="en-title">Why Do I Feel So Weird?</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-pink-theme-asi-funciona-el-mundo/35-por-que-me-siento-tan-rara.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </div>
+
+        <!-- ORANGE THEME -->
+        <div class="audio-group theme-orange">
+          <h2>
+            <span class="theme-label">The Orange Theme - Decisiones pequeñas</span>
+            <span class="theme-subtitle">Small Decisions</span>
+          </h2>
+
+          <div class="story-block">
+            <h3>El asiento de Rafa<span class="en-title">Rafa's Seat</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-orange-theme-decisiones-pequenas/36-el-asiento-de-rafa.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>Un punto de más<span class="en-title">One Point Too Many</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-orange-theme-decisiones-pequenas/37-un-punto-de-mas.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El orgullo silencioso<span class="en-title">Quiet Pride</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-orange-theme-decisiones-pequenas/38-el-orgullo-silencioso.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El cambio justo<span class="en-title">The Fair Trade</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-orange-theme-decisiones-pequenas/39-el-cambio-justo.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+
+          <div class="story-block">
+            <h3>El pendiente perdido<span class="en-title">The Lost Earring</span></h3>
+            <audio controls class="story-audio">
+              <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-orange-theme-decisiones-pequenas/40-pendiente-perdido.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+        </div>
+
       </div>
-
-      <!-- BLUE THEME -->
-      <div class="audio-group theme-blue">
-        <h2>
-          <span class="theme-label">The Blue Theme - Tradiciones del Mundo</span>
-          <span class="theme-subtitle">Traditions Around the World</span>
-        </h2>
-
-        <div class="story-block">
-          <h3>Diego y el Día de los Muertos<span class="en-title">Diego's Día de los Muertos</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-blue-theme-tradiciones-del-mundo/06-diegos-dia-de-los-muertos.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El picnic de Tomo bajo los árboles de sakura<span class="en-title">Tomo's Picnic Under the Sakura Trees</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-blue-theme-tradiciones-del-mundo/07-picnic-de-tomo.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>Una Navidad diferente para Samuel<span class="en-title">A Different Christmas for Samuel</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-blue-theme-tradiciones-del-mundo/08-navidad-diferente-samuel.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El Diwali de Maya<span class="en-title">Maya's Diwali</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-blue-theme-tradiciones-del-mundo/09-diwali-de-maya.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El desfile de Carnaval de Luna<span class="en-title">Luna's Carnival Parade</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-blue-theme-tradiciones-del-mundo/10-desfile-de-carnaval-de-luna.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      </div>
-
-      <!-- YELLOW THEME -->
-      <div class="audio-group theme-yellow">
-        <h2>
-          <span class="theme-label">The Yellow Theme - Cosas que me gustan</span>
-          <span class="theme-subtitle">Things I Like</span>
-        </h2>
-
-        <div class="story-block">
-          <h3>¿Dónde está Max?<span class="en-title">Where Is Max?</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-yellow-theme-cosas-que-me-gustan/11-donde-esta-max.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>La canción del día lluvioso<span class="en-title">The Rainy Day Song</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-yellow-theme-cosas-que-me-gustan/12-cancion-dia-lluvioso.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>Domingos de dragones<span class="en-title">Dragon Sundays</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-yellow-theme-cosas-que-me-gustan/13-domingos-de-dragones.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>Probar algo nuevo<span class="en-title">Trying Something New</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-yellow-theme-cosas-que-me-gustan/14-probar-algo-nuevo.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El club de lectura de Laura<span class="en-title">Laura's Book Club</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-yellow-theme-cosas-que-me-gustan/15-club-de-lectura-de-laura.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      </div>
-
-      <!-- BROWN THEME -->
-      <div class="audio-group theme-brown">
-        <h2>
-          <span class="theme-label">The Brown Theme - Amistad y Trabajo en Equipo</span>
-          <span class="theme-subtitle">Friendship and Teamwork</span>
-        </h2>
-
-        <div class="story-block">
-          <h3>El problema del show de talento<span class="en-title">The Talent Show Problem</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-brown-theme-amistad-y-trabajo-en-equipo/16-problema-show-de-talento.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>La isla de uno<span class="en-title">The Island of One</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-brown-theme-amistad-y-trabajo-en-equipo/17-isla-de-uno.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El error del videojuego<span class="en-title">The Game Glitch</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-brown-theme-amistad-y-trabajo-en-equipo/18-game-glitch.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El barco que no se movía<span class="en-title">The Boat That Wouldn't Move</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-brown-theme-amistad-y-trabajo-en-equipo/19-barco-que-no-se-movia.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El partido más importante<span class="en-title">The Most Important Match</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-brown-theme-amistad-y-trabajo-en-equipo/20-partido-mas-importante.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      </div>
-
-      <!-- RED THEME -->
-      <div class="audio-group theme-red">
-        <h2>
-          <span class="theme-label">The Red Theme - Cuando Sea Grande...</span>
-          <span class="theme-subtitle">When I Grow Up...</span>
-        </h2>
-
-        <div class="story-block">
-          <h3>¿Talento o esfuerzo?<span class="en-title">Talent or Effort?</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-red-theme-cuando-sea-grande/21-talento-o-esfuerzo.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El cielo es el límite<span class="en-title">The Sky Is the Limit</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-red-theme-cuando-sea-grande/22-cielo-es-el-limite.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El sabor de una idea<span class="en-title">The Taste of an Idea</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-red-theme-cuando-sea-grande/23-sabor-de-una-idea.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>La historia que no tenía final<span class="en-title">The Story That Wasn't Finished</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-red-theme-cuando-sea-grande/24-historia-que-no-tenia-final.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>Estar para alguien<span class="en-title">Being There for Someone</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-red-theme-cuando-sea-grande/25-estar-para-alguien.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      </div>
-
-      <!-- GREEN THEME -->
-      <div class="audio-group theme-green">
-        <h2>
-          <span class="theme-label">The Green Theme - Niños Curiosos, Grandes Preguntas</span>
-          <span class="theme-subtitle">Curious Kids, Big Questions</span>
-        </h2>
-
-        <div class="story-block">
-          <h3>¿Los adultos lo saben todo?<span class="en-title">Do Adults Know Everything?</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-green-theme-ninos-curiosos-grandes-preguntas/26-adultos-lo-saben-todo.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>¿Qué hay al otro lado del mundo?<span class="en-title">What's on the Other Side of the World?</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-green-theme-ninos-curiosos-grandes-preguntas/27-otro-lado-del-mundo.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>¿Por qué no puedo ver el viento?<span class="en-title">Why Can't I See the Wind?</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-green-theme-ninos-curiosos-grandes-preguntas/28-por-que-no-puedo-ver-el-viento.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>¿Qué significan los sueños?<span class="en-title">What Do Dreams Mean?</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-green-theme-ninos-curiosos-grandes-preguntas/29-que-significan-los-suenos.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>¿Puedes contar las estrellas?<span class="en-title">Can You Count the Stars?</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-green-theme-ninos-curiosos-grandes-preguntas/30-puedes-contar-las-estrellas.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      </div>
-
-      <!-- PINK THEME -->
-      <div class="audio-group theme-pink">
-        <h2>
-          <span class="theme-label">The Pink Theme - Así funciona el mundo</span>
-          <span class="theme-subtitle">How the World Works</span>
-        </h2>
-
-        <div class="story-block">
-          <h3>El día que el volcán estalló<span class="en-title">The Day the Volcano Model Exploded</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-pink-theme-asi-funciona-el-mundo/31-el-dia-que-el-volcan-estallo.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El misterio del microscopio<span class="en-title">Microscope Mystery</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-pink-theme-asi-funciona-el-mundo/32-el-misterio-del-microscopio.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>¿Cómo vuelan los aviones?<span class="en-title">How Planes Stay in the Air</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-pink-theme-asi-funciona-el-mundo/33-como-vuelan-los-aviones.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>Se fue la luz<span class="en-title">The Power Goes Out</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-pink-theme-asi-funciona-el-mundo/34-se-fue-la-luz.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>¿Por qué me siento tan rara?<span class="en-title">Why Do I Feel So Weird?</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-pink-theme-asi-funciona-el-mundo/35-por-que-me-siento-tan-rara.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      </div>
-
-      <!-- ORANGE THEME -->
-      <div class="audio-group theme-orange">
-        <h2>
-          <span class="theme-label">The Orange Theme - Decisiones pequeñas</span>
-          <span class="theme-subtitle">Small Decisions</span>
-        </h2>
-
-        <div class="story-block">
-          <h3>El asiento de Rafa<span class="en-title">Rafa's Seat</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-orange-theme-decisiones-pequenas/36-el-asiento-de-rafa.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>Un punto de más<span class="en-title">One Point Too Many</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-orange-theme-decisiones-pequenas/37-un-punto-de-mas.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El orgullo silencioso<span class="en-title">Quiet Pride</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-orange-theme-decisiones-pequenas/38-el-orgullo-silencioso.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El cambio justo<span class="en-title">The Fair Trade</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-orange-theme-decisiones-pequenas/39-el-cambio-justo.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-
-        <div class="story-block">
-          <h3>El pendiente perdido<span class="en-title">The Lost Earring</span></h3>
-          <audio controls class="story-audio">
-            <source src="https://raw.githubusercontent.com/baronpublishing/five-minute-spanish-english/main/useful-words-pronunciation/the-orange-theme-decisiones-pequenas/40-pendiente-perdido.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      </div>
-
     </div>
   </div>
-</div>
+</body>
+</html>
